@@ -43,7 +43,7 @@ public class MainActivity extends FlutterActivity {
     private static final String CHARGING_CHANNEL = "futures.flutter.io/charging";
     private static final String MdListEvent = "mdListEvent";
     private static final String MdDataEvent = "mdDataEvent";
-    private static final String SOCKET_SERVER = "http://192.168.2.211:12345/";
+    private static final String SOCKET_SERVER = "http://yourip:12345/";
 
     private MethodChannel quotationChanel;
 
