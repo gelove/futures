@@ -99,7 +99,7 @@ class _MarketItemState extends State<MarketItem>
 
   @override
   void didUpdateWidget(MarketItem oldWidget) {
-    print('didUpdateWidget');
+//    print('didUpdateWidget');
 //    print(oldWidget.quotations);
     super.didUpdateWidget(oldWidget);
   }
@@ -131,7 +131,7 @@ class _MarketItemState extends State<MarketItem>
       case "setQuotation":
         Quotations quotations = new Quotations(call.arguments);
         List<Quotation> dataList = quotations.list;
-        print(dataList[0].contractName + ' ' + dataList[0].lastPrice);
+//        print(dataList[0].contractName + ' ' + dataList[0].lastPrice);
         Map<String, Quotation> _map = _allQuotations;
         dataList.forEach((item) {
           _map[item.contractNo] = item;
@@ -196,13 +196,9 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      ///卡片包装
       child: new Card(
-
-          ///增加点击效果
           child: new FlatButton(
               onPressed: () {
-                print("点击了哦");
                 Navigator.of(context)
                     .push(new MaterialPageRoute(builder: (context) {
                   return new Detail();
@@ -214,7 +210,6 @@ class ListItem extends StatelessWidget {
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    ///三个平均分配的横向图标文字
                     new Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -245,7 +240,6 @@ class ItemCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ///返回一个居中带图标和文本的Item
     ///充满 Row 横向的布局
     return new Expanded(
       flex: 1,
@@ -263,22 +257,20 @@ class ItemCell extends StatelessWidget {
           ///竖向也居中
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            ///一个图标，大小16.0，灰色
             ///间隔
             new Padding(padding: new EdgeInsets.only(left: 5.0)),
-
             ///显示文本
             new Text(
               text,
-              //设置字体样式：颜色灰色，字体大小14.0
+              ///设置字体样式：颜色灰色，字体大小14.0
               style: new TextStyle(
                   color: this.compare == null
                       ? Colors.grey
                       : (this.compare ? Colors.red : Colors.green),
                   fontSize: 14.0),
-              //超过的省略为...显示
+              ///超过的省略为...显示
               overflow: TextOverflow.ellipsis,
-              //最长一行
+              ///最长一行
               maxLines: 1,
             ),
           ],
